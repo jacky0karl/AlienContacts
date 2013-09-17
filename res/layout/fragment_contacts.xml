@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:divider="#CCCCCC"
+        android:dividerHeight="1px"/>
+
+    <TextView
+        android:id="@+id/letter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#A087CEFA"
+        android:gravity="center"
+        android:maxWidth="70dp"
+        android:minWidth="70dp"
+        android:padding="10dp"
+        android:textColor="#99FFFFFF"
+        android:textSize="50sp" >
+    </TextView>
+
+    <com.jk.aliencontacts.ui.AlphaSideBar
+        android:id="@+id/sidebar"
+        android:layout_width="30dp"
+        android:layout_height="fill_parent"
+        android:layout_gravity="right" >
+    </com.jk.aliencontacts.ui.AlphaSideBar>
+
+</FrameLayout>

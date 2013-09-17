@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:descendantFocusability="blocksDescendants"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/letter_title"
+        style="@style/LetterTitle"
+        android:layout_height="wrap_content"
+        android:paddingRight="40dp" />
+
+    <LinearLayout
+        style="@style/ContactItem"
+        android:layout_height="50dp"
+        android:focusable="true"
+        android:background="@drawable/listitem"
+        android:paddingLeft="10dp" >
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/avatar" />
+
+        <TextView
+            android:id="@+id/displayname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:textColor="#ff808080"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+</LinearLayout>
