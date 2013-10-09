@@ -1,94 +1,73 @@
 package com.jk.aliencontacts.ui;
 
 import com.jk.aliencontacts.R;
-import com.jk.aliencontacts.util.DummyTabContent;
+import com.viewpagerindicator.TabPageIndicator;
+
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
-import android.widget.TabHost;
-import android.widget.TabHost.OnTabChangeListener;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 
-public class HomeActivity extends FragmentActivity implements OnTabChangeListener {
+public class HomeActivity extends FragmentActivity {
 
     // Tab tags
     public static final String DIAL = "dial";
     public static final String CONTACTS = "contacts";
     public static final String SMS = "sms";
-    public static final String SETTINGS = "settings";
-
-    private TabHost mTabHost;
-
-    private DialFragment mDialFragment;
-    private ContactsFragment mContactsFragment;
+    public static final String SETTINGS = "settings";    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        init();
+
+        HomeAdapter adapter = new HomeAdapter(getSupportFragmentManager());
+
+        ViewPager pager = (ViewPager) findViewById(R.id.pager);
+        pager.setAdapter(adapter);
+
+        TabPageIndicator indicator = (TabPageIndicator) findViewById(R.id.indicator);
+        indicator.setViewPager(pager);
     }
 
-    private void init() {
-        mTabHost = (TabHost) findViewById(android.R.id.tabhost);
-        mTabHost.setup();
-        mTabHost.setOnTabChangedListener(this);
-        initTab();
-    }
-
-    public void initTab() {
-        TabHost.TabSpec dail = mTabHost.newTabSpec(DIAL);
-        dail.setIndicator(DIAL);
-        dail.setContent(new DummyTabContent(getBaseContext()));
-        mTabHost.addTab(dail);
-
-        TabHost.TabSpec contacts = mTabHost.newTabSpec(CONTACTS);
-        contacts.setIndicator(CONTACTS);
-        contacts.setContent(new DummyTabContent(getBaseContext()));
-        mTabHost.addTab(contacts);
-        mTabHost.setCurrentTab(1);
-    }
-
-    public void TabDial(FragmentTransaction ft) {
-        if (mDialFragment == null) {
-            mDialFragment = new DialFragment();
-            ft.add(R.id.realtabcontent, mDialFragment, DIAL);
-        } else {
-            ft.attach(mDialFragment);
+    class HomeAdapter extends FragmentPagerAdapter {
+        public HomeAdapter(FragmentManager fm) {
+            super(fm);
         }
-    }
 
-    public void TabContacts(FragmentTransaction ft) {
-        if (mContactsFragment == null) {
-            mContactsFragment = new ContactsFragment();
-            ft.add(R.id.realtabcontent, mContactsFragment, CONTACTS);
-        } else {
-            ft.attach(mContactsFragment);
+        @Override
+        public Fragment getItem(int position) {
+            Fragment item = null;
+            switch (position) {
+            case 0:
+                item = new DialFragment();
+                break;
+            case 1:
+                item = new ContactsFragment();
+                break;
+            }
+            return item;
         }
-    }
 
-    @Override
-    public void onTabChanged(String tabId) {
-        Log.i("Alien***************onTabChanged", String.valueOf(tabId));
-        FragmentManager fm = getSupportFragmentManager();     
-        FragmentTransaction ft = fm.beginTransaction();
-
-        if (mDialFragment != null) {
-            Log.i("Alien***************dialFragment", String.valueOf(tabId));
-            ft.detach(mDialFragment);
-        }            
-
-        if (mContactsFragment != null) {
-            Log.i("Alien***************contactsFragment", String.valueOf(tabId));
-            ft.detach(mContactsFragment);
-        }           
-
-        if (tabId.equalsIgnoreCase(DIAL)) {
-            TabDial(ft);
-        } else if (tabId.equalsIgnoreCase(CONTACTS)) {
-            TabContacts(ft);
+        @Override
+        public CharSequence getPageTitle(int position) {
+            String title = null;
+            switch (position) {
+            case 0:
+                title = DIAL;
+                break;
+            case 1:
+                title = CONTACTS;
+                break;
+            }
+            return title;
         }
-        ft.commit();
-    }
+
+        @Override
+        public int getCount() {
+            return 2;
+        }
+    }    
 }
