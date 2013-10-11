@@ -25,11 +25,11 @@
         android:textSize="50sp" >
     </TextView>
 
-    <com.jk.aliencontacts.ui.AlphaSideBar
+    <com.jk.aliencontacts.ui.widget.AlphaSideBar
         android:id="@+id/sidebar"
         android:layout_width="30dp"
         android:layout_height="fill_parent"
         android:layout_gravity="right" >
-    </com.jk.aliencontacts.ui.AlphaSideBar>
+    </com.jk.aliencontacts.ui.widget.AlphaSideBar>
 
 </FrameLayout>

@@ -2,7 +2,6 @@ package com.jk.aliencontacts.ui;
 
 import com.jk.aliencontacts.R;
 import com.viewpagerindicator.TabPageIndicator;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -16,7 +15,7 @@ public class HomeActivity extends FragmentActivity {
     public static final String DIAL = "dial";
     public static final String CONTACTS = "contacts";
     public static final String SMS = "sms";
-    public static final String SETTINGS = "settings";    
+    public static final String SETTINGS = "settings";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,5 +68,5 @@ public class HomeActivity extends FragmentActivity {
         public int getCount() {
             return 2;
         }
-    }    
+    }
 }

@@ -2,7 +2,14 @@
 <resources>
 
     <drawable name="holo_light">#E8E8E7</drawable>
-    <drawable name="list_pressed">#FFFF7F24</drawable>
-    <drawable name="white">#FFFFFFFF</drawable>
+    <drawable name="list_pressed">#A4D3EE</drawable>
+    <drawable name="white">#FFFFFF</drawable>
+    
+    <!-- override for actionbar -->
+    <color name="actionbar_separator">#A4D3EE</color>
+    <color name="actionbar_background_start">#9B30FF</color>
+    <color name="actionbar_background_end">#9F79EE</color>
+    <color name="actionbar_background_item_pressed_start">#AEEEEE</color>
+    <color name="actionbar_background_item_pressed_end">#B2DFEE</color>
 
 </resources>

@@ -2,7 +2,8 @@ package com.jk.aliencontacts.ui;
 
 import com.jk.aliencontacts.R;
 import com.jk.aliencontacts.adapter.ContactsAdapter;
-import com.jk.aliencontacts.ui.AlphaSideBar.OnTouchingLetterChangedListener;
+import com.jk.aliencontacts.ui.widget.AlphaSideBar;
+import com.jk.aliencontacts.ui.widget.AlphaSideBar.OnTouchingLetterChangedListener;
 
 import android.content.Intent;
 import android.os.Bundle;

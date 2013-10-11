@@ -1,4 +1,4 @@
-package com.jk.aliencontacts.ui;
+package com.jk.aliencontacts.ui.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
