@@ -11,11 +11,16 @@ import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -40,6 +45,7 @@ public class DialFragment extends Fragment implements OnClickListener {
 
         actionBar.setOnTitleClickListener(this);
         initPopupMenu();
+        
     }
 
     @Override
@@ -88,5 +94,27 @@ public class DialFragment extends Fragment implements OnClickListener {
         } else {
             menuWindow.showAsDropDown(actionBar);
         }
+    }
+
+    public void initDialpad() {
+        LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(
+                Context.LAYOUT_INFLATER_SERVICE);
+        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.dialpad, null);
+
+        Button b1 = (Button) layout.findViewById(R.id.num1);
+
+        SpannableStringBuilder style = new SpannableStringBuilder("2 ABC");
+        style.setSpan(new RelativeSizeSpan((float) 1.5), 0, 1, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        style.setSpan(new RelativeSizeSpan((float) 0.5), 2, 5, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+        b1.setText(style);
+
+        PopupWindow menuWindow1 = new PopupWindow(layout, LayoutParams.MATCH_PARENT,
+                LayoutParams.WRAP_CONTENT);
+        // menuWindow1.setFocusable(true);
+        // menuWindow1.setOutsideTouchable(true);
+        // menuWindow1.update();
+        // menuWindow1.setBackgroundDrawable(new BitmapDrawable());
+
+        menuWindow1.showAsDropDown(actionBar);
     }
 }

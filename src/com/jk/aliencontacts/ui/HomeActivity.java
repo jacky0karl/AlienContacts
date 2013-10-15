@@ -1,15 +1,20 @@
 package com.jk.aliencontacts.ui;
 
+import java.util.List;
+
 import com.jk.aliencontacts.R;
 import com.viewpagerindicator.TabPageIndicator;
+import com.viewpagerindicator.TabPageIndicator.OnTabReselectedListener;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
-public class HomeActivity extends FragmentActivity {
+public class HomeActivity extends FragmentActivity implements OnTabReselectedListener {
 
     // Tab tags
     public static final String DIAL = "dial";
@@ -29,6 +34,7 @@ public class HomeActivity extends FragmentActivity {
 
         TabPageIndicator indicator = (TabPageIndicator) findViewById(R.id.indicator);
         indicator.setViewPager(pager);
+        indicator.setOnTabReselectedListener(this);
     }
 
     class HomeAdapter extends FragmentPagerAdapter {
@@ -67,6 +73,18 @@ public class HomeActivity extends FragmentActivity {
         @Override
         public int getCount() {
             return 2;
+        }
+    }
+
+    @Override
+    public void onTabReselected(int position) {
+        if (position == 0) {          
+            List<Fragment> f = getSupportFragmentManager().getFragments();
+            for (int i=0; i<f.size(); i++) {
+                if (f.get(i) instanceof DialFragment) {
+                    ((DialFragment) f.get(i)).initDialpad();
+                }
+            }
         }
     }
 }
