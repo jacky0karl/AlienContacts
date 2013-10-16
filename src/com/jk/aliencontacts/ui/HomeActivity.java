@@ -82,7 +82,7 @@ public class HomeActivity extends FragmentActivity implements OnTabReselectedLis
             List<Fragment> f = getSupportFragmentManager().getFragments();
             for (int i=0; i<f.size(); i++) {
                 if (f.get(i) instanceof DialFragment) {
-                    ((DialFragment) f.get(i)).initDialpad();
+                    ((DialFragment) f.get(i)).dialpadToggle();
                 }
             }
         }

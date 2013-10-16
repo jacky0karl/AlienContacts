@@ -18,7 +18,7 @@
         <item name="android:textSize">15sp</item>
         <item name="android:maxLines">1</item>
     </style>
-    
+
     <!-- 联系分组样式 -->
     <style name="ContactItem">
         <item name="android:gravity">center_vertical</item>
@@ -40,6 +40,14 @@
         <item name="android:paddingBottom">2dip</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="number_button">
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@drawable/listitem</item>
     </style>
 
 </resources>

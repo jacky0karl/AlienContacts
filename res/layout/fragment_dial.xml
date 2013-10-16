@@ -2,17 +2,103 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/holo_light"
     android:orientation="vertical" >
 
     <com.jk.aliencontacts.ui.widget.TextActionBar
         android:id="@+id/actionbar"
         style="@style/ActionBar" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="fragment_dial" />
+    <SlidingDrawer
+        android:id="@+id/slidingDrawer"
+        android:layout_width="fill_parent"
+        android:layout_height="240dp"
+        android:layout_gravity="bottom"
+        android:content="@+id/content"
+        android:handle="@+id/handle" >
+
+        <View
+            android:id="@id/handle"
+            android:layout_width="fill_parent"
+            android:layout_height="0px"
+            android:background="@android:color/transparent"
+            android:clickable="false"
+            android:focusable="false" />
+
+        <TableLayout
+            android:id="@+id/content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"           
+            android:stretchColumns="*" >
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/num1"
+                    style="@style/number_button" />
+
+                <Button
+                    android:id="@+id/num2"
+                    style="@style/number_button" />
+
+                <Button
+                    android:id="@+id/num3"
+                    style="@style/number_button" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/num4"
+                    style="@style/number_button" />
+
+                <Button
+                    android:id="@+id/num5"
+                    style="@style/number_button" />
+
+                <Button
+                    android:id="@+id/num6"
+                    style="@style/number_button" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/num7"
+                    style="@style/number_button" />
+
+                <Button
+                    android:id="@+id/num8"
+                    style="@style/number_button" />
+
+                <Button
+                    android:id="@+id/num9"
+                    style="@style/number_button" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/num_star"
+                    style="@style/number_button" />
+
+                <Button
+                    android:id="@+id/num0"
+                    style="@style/number_button" />
+
+                <Button
+                    android:id="@+id/num_"
+                    style="@style/number_button" />
+            </TableRow>
+        </TableLayout>
+    </SlidingDrawer>
 
 </FrameLayout>
